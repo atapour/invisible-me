@@ -83,13 +83,8 @@ while (keep_processing):
 
     # overlay label
 
-    cv2.putText(
-        frame,
-        'Green Hue Isolated',
-        (10, frame.shape[0] - 15),
-        cv2.FONT_HERSHEY_COMPLEX,
-        1, (123, 49, 126), 4
-        )
+    cv2.putText(frame, 'Green Hue Isolated', (10, frame.shape[0] - 15),
+        cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 4)
     
     # display image
 

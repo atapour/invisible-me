@@ -73,27 +73,25 @@ while (keep_processing):
     # overlay corresponding labels on the images
 
     cv2.putText(rgb, 'Input Image', (10, rgb.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
     cv2.putText(red, 'RGB - Red', (10, red.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
     cv2.putText(green, 'RGB - Green', (10, green.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
     cv2.putText(blue, 'RGB - Blue', (10, blue.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
     cv2.putText(hue, 'HSV - Hue', (10, hue.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
     cv2.putText(saturation, 'HSV - Saturation', (10, saturation.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
     cv2.putText(value, 'HSV - Value', (10, value.shape[0] - 15),
-            cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
 
     # stack the images into a grid
 
     im_1 = cv2.hconcat([rgb, red, green, blue])
     im_2 = cv2.hconcat([rgb, hue, saturation, value])
     output = cv2.vconcat([im_1, im_2])
-
-    # *******************************
         
     # stop the timer and convert to ms. (to see how long processing and
     # display takes)
@@ -106,7 +104,7 @@ while (keep_processing):
     cv2.putText(output, label, (0, 60),
                 cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
 
-   # display image
+    # display image
 
     cv2.imshow(window_name, output)
 
@@ -129,8 +127,8 @@ while (keep_processing):
         last_fs = cv2.getWindowProperty(window_name,
                                         cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
-                            cv2.WINDOW_FULLSCREEN &
-                            ~(int(last_fs)))
+                                cv2.WINDOW_FULLSCREEN &
+                                ~(int(last_fs)))
 
 # ===================================================================
 

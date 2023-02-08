@@ -20,6 +20,7 @@ import math
 # this function is called as a call-back every time the trackbar is moved
 # (here we just do nothing)
 
+
 def nothing(x):
     pass
 

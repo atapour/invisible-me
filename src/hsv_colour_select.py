@@ -27,6 +27,7 @@ upper_bound = np.array([255, 255, 255])
 # mouse callback function - activated on any mouse event (click, movement)
 # displays and sets Hue range based on right click location
 
+
 def mouse_callback(event, x, y, flags, param):
 
     global upper_bound
@@ -53,8 +54,8 @@ def mouse_callback(event, x, y, flags, param):
 
     elif event == cv2.EVENT_RBUTTONDOWN:
 
-       lower_bound = np.array([0, 0, 0])
-       upper_bound = np.array([255, 255, 255])
+        lower_bound = np.array([0, 0, 0])
+        upper_bound = np.array([255, 255, 255])
 
 
 # ===================================================================
