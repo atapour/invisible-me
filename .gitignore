@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Mac OS:
+.DS_Store
+
+# Videos:
+*.mp4
+*.avi
+
+# VSCode:
+.vscode/
