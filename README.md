@@ -109,15 +109,15 @@ You may wish to look at the mouse callback function (see ```mouse_callback()``` 
 
 ![cloaking 1](img/cloaked-example-01.png)
 
-From all of the image processing functionality we have built up so far, we can now build _Harry Potter_ style invisibility cloaking in software using a technique known as [chroma keying]().
+From all the image processing functionality we have built up so far, we can now build the famous cloak of invisibility seen in _Harry Potter_ in software using a technique known as [chroma keying](https://en.wikipedia.org/wiki/Chroma_key).
 
 To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - point your webcam to a clear(ish) area of the room with no people or (green) chroma keying material in view; and run the code (click _"Run > Run Without Debugging"_)
-- _[ a window of the current background image captured by the code should be displayed in one window, and the live image view in another ]_
-- you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
+- _[a window of the current background image captured by the code should be displayed in one window, and the live image view in another]_
+- you may need to resize the live image view window with the mouse (_you can also turn fullscreen on/off by pressing ```f```_)
 - bring the (green) chroma keying material into view and _left click_ on it to select its Hue as before
-- _[ you can exit the program by pressing ```x``` ]_
+- _[you can exit the program by pressing ```q```]_
 
 You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image.
 

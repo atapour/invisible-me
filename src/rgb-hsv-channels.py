@@ -92,7 +92,7 @@ while (keep_processing):
     im_1 = cv2.hconcat([rgb, red, green, blue])
     im_2 = cv2.hconcat([rgb, hue, saturation, value])
     output = cv2.vconcat([im_1, im_2])
-        
+
     # stop the timer and convert to ms. (to see how long processing and
     # display takes)
 
@@ -127,8 +127,8 @@ while (keep_processing):
         last_fs = cv2.getWindowProperty(window_name,
                                         cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
-                                cv2.WINDOW_FULLSCREEN &
-                                ~(int(last_fs)))
+                            cv2.WINDOW_FULLSCREEN &
+                            ~(int(last_fs)))
 
 # ===================================================================
 
