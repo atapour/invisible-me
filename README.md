@@ -64,11 +64,13 @@ Computers normally store an image as a giant matrix with three values for each p
 
 ![RGB Diagram](img/RGB-HSV.png)
 
-- copy and paste the code from this example [hsv_colour.py](src/hsv_colour.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
-- you should see a grey image displayed but with the green material colour retained (in green), as per the example below
-- _[ you can exit the program by pressing any key ]_
+- copy and paste the code from this example [green_colour_hsv.py](src/green_colour_hsv.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- run the program as before (click _"Run > Run Without Debugging"_)
+- hold up the (green) chroma keying material in front of the camera
+- you should see a live video with every part of the scene greyed out but with the green material colour retained (in green), as per the example below
+- _[you can exit the program by pressing ```q```]_
 
+TOoOOooOO CHANGE
 ![HSV selected region](img/hsv-selected-colour-01.png)
 
 _If it doesn't work for you, you may need to adjust the range settings for the Hue value (first value of array) to get the correct range of green Hue, in the code lines:_
@@ -80,29 +82,28 @@ upper_green = np.array([95, 255, 255])
 
 ### How does this work ?
 
-The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue gives the essential colour (approx. equivalent to the wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the colour at that pixel.
+The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a **Hue**, **Saturation** and **Value** values for each pixel. Hue gives the essential colour (approx. equivalent to the wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the colour at that pixel.
 
-By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The print statement in the program will output the HSV values of the centre pixel of the image to the terminal.
-
-The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 55 and 95, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
+By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 55 and 95, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
 
 The function ```cv2.inRange(...)``` is used to create a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white (binary) mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a bit-wise logical AND (```bitwise_and()```) with the inverted mask to keep only pixels that were not green, and another from a bit-wise logical AND of the original image and the mask to keep only the green pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
 
 ## And now with point and click ....
 
-In order to make this approach easier to use we can add a point and click colour selector via the use of a mouse callback function, and combine this with our earlier live camera video display code.
+In order to make this approach easier to use, we can add a point and click colour selector via the use of a mouse callback function, and combine this with our earlier live camera video display code.
 
 To try this out:
 
 - copy and paste the code from this example [hsv_colour_select.py](src/hsv_colour_select.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
 - you should initially see a live colour image from the camera; _left click_ on any object to select its Hue
-- you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma keying material)
-- _[ you can exit the program by pressing ```x``` ]_
+- you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma keying material if that is what you selected)
+- you can try this multiple times as the selected hue can be reset by right-clicking on the video.
+- _[you can exit the program by pressing ```q```]_
 
-You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
+You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and see how it works.
 
-**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](src/rgb_viewer.py?raw=1) and [hsv_viewer.py](src/hsv_viewer.py?raw=1) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding colour channels of the RGB channels (yet appear in all 3), and similarly vibrant colours have strong responses in the Hue and Saturation channels of HSV.
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find the script called [rgb-hsv-channels.py](src/rgb-hsv-channels.py?raw=1) interesting. Run this as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding colour channels of the RGB channels (yet appear in all 3), and similarly vibrant colours have strong responses in the Hue and Saturation channels of HSV.
 
 ## Task 3 - Building an Invisibility Cloak
 
