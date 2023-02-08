@@ -17,7 +17,7 @@ Four quick steps to get you started:
 1. Ensure the computer is booted into Linux
 2. Login with the provided username and password
 3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
-4. Within Visual Studio Code select menu item: File > New File
+4. Within Visual Studio Code, select menu item: File > New File
     * Choose _"Python"_ when you are prompted to select a language
         - If _"Python"_ is not offered as a choice, press **Ctrl+Shift+X** and then search for _"Python"_ and press install
     * It will then say _"Do you want to install the recommended extensions for Python?"_
@@ -25,11 +25,11 @@ Four quick steps to get you started:
 
 ![RGB Diagram](img/vs-code-python-installed.png)
 
-**You are now ready to start coding** - make sure you have all the supporting materials to hand, and go to **Task 1**
+**You are now ready to start coding** - make sure you have all the supporting materials to hand, and go to **Task 1**.
 
-#### Supporting Materials
+#### Supporting Materials:
 
-_[ All supplied if you are doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/) ]_
+_[All supplied if you are doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)]_
 
 - a Linux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
 - 1 x USB webcam (that works under Linux with the UVC driver)
@@ -39,30 +39,28 @@ _[ All supplied if you are doing this as a visitor to [Computer Science at Durha
 
 Once you have completed the **Getting Started** steps:
 
-- copy and paste the code from this example [capture_camera.py](src/capture_camera.py?raw=1) into your Visual Studio Code window
+- copy and paste the code from the example within the file [live_video.py](src/live_video.py?raw=1) into your Visual Studio Code window
 - save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
-- _[ make sure your usb webcam is connected to your PC ]_
+- _[make sure your usb webcam is connected to your PC]_
 - click _"Run > Run Without Debugging"_
 
 ![RGB Diagram](img/vs-code-python-run.png)
 
-- you should see a window with an image captured from the camera displayed.
+- you should see a window with a live vide being captured from the camera displayed. [_you can exit the program by pressing ```q```_ ]
 
-You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
+_If you do not see a live video image_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
 You may now also wish to try the following:
 
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
-- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [live_video.py](src/live_video.py?raw=1) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
+- playing around with the blurring that has been added to the image to remove image noise: the line containing ```cv2.GaussianBlur(...)``` in the code smooths the image by blurring it in order to remove the noise. The specified filter sizes, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image. When you run this code, you notice that there are graphical user interface (GUI) sliders to control the parameters of this blurring on the live image.
 
-By varying the filter sizes you can also observe the impact on the processing time required to blur the image in the test in the top left of the image display (_more blurring => more computation required => more time required to process each image => slower processing_). You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
-
+By varying the filter sizes (using the sliders) you can also observe the impact on the processing time required to blur the image in the test in the top left of the image display (_more blurring => more computation required => more time required to process each image => slower processing_). You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
 ## Task 2 - Identifying an Image Region by Hue
 
-Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object by colour. However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of **Red**, **Green** and **Blue** (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object by colour. However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
 
 ![RGB Diagram](img/RGB-HSV.png)
 
