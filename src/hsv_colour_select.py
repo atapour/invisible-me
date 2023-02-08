@@ -1,6 +1,6 @@
 # ===================================================================
 
-# Task 2 : identify an image region by hue (e.g. green)
+# Task 2 : identify an image region by hue via point and click
 
 # Contact : amir.atapour-abarghouei@durham.ac.uk
 # https://github.com/atapour/
@@ -17,10 +17,45 @@ import numpy as np
 
 # ===================================================================
 
-# define the range of hues to detect - e.g. green
+# define the range of hues to detect - set automatically using mouse
 
-lower_green = np.array([55, 50, 50])
-upper_green = np.array([95, 255, 255])
+lower_bound = np.array([0, 0, 0])
+upper_bound = np.array([255, 255, 255])
+
+# ===================================================================
+
+# mouse callback function - activated on any mouse event (click, movement)
+# displays and sets Hue range based on right click location
+
+def mouse_callback(event, x, y, flags, param):
+
+    global upper_bound
+    global lower_bound
+
+    # records mouse events at position (x,y) in the image window
+    # left button click prints colour HSV information and sets range
+
+    if event == cv2.EVENT_LBUTTONDOWN:
+        print("HSV colour @ position (%d,%d) = %s (bounds set with +/- 20)" %
+              (x, y, ', '.join(str(i) for i in image_hsv[y, x])))
+
+        # set Hue bounds on the Hue with +/- 15 threshold on the range
+
+        upper_bound[0] = image_hsv[y, x][0] + 20
+        lower_bound[0] = image_hsv[y, x][0] - 20
+
+        # set Saturation and Value to eliminate very dark, noisy image regions
+
+        lower_bound[1] = 50
+        lower_bound[2] = 50
+
+    # right button click resets HSV range
+
+    elif event == cv2.EVENT_RBUTTONDOWN:
+
+       lower_bound = np.array([0, 0, 0])
+       upper_bound = np.array([255, 255, 255])
+
 
 # ===================================================================
 
@@ -30,8 +65,13 @@ camera = cv2.VideoCapture(0)
 
 # define display window
 
-window_name = "Live Camera Input with Green Hue Region"
+window_name = "Live Camera Input with Selected Hue Region"
 cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+
+# set the mouse call back function that will be called every time
+# the mouse is clicked inside the display window
+
+cv2.setMouseCallback(window_name, mouse_callback)
 
 # ===================================================================
 
@@ -53,7 +93,7 @@ while (keep_processing):
 
     # create a mask that identifies the pixels in the range of hues
 
-    mask = cv2.inRange(image_hsv, lower_green, upper_green)
+    mask = cv2.inRange(image_hsv, lower_bound, upper_bound)
     mask_inverted = cv2.bitwise_not(mask)
 
     # create a grey image and black out the masked area
@@ -81,16 +121,21 @@ while (keep_processing):
     cv2.putText(frame, label, (0, 15),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
-    # overlay label
+    # overlay labels
 
-    cv2.putText(
-        frame,
-        'Green Hue Isolated',
-        (10, frame.shape[0] - 15),
-        cv2.FONT_HERSHEY_COMPLEX,
-        1, (123, 49, 126), 4
-        )
-    
+    label1 = "left-click to select region by colour"
+    label2 = "right-click to reset selected range"
+    label3 = f'current range: {lower_bound} - {upper_bound}'
+
+    cv2.putText(frame, label1, (10, frame.shape[0] - 85),
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 4)
+
+    cv2.putText(frame, label2, (10, frame.shape[0] - 50),
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 4)
+
+    cv2.putText(frame, label3, (10, frame.shape[0] - 15),
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 4)
+
     # display image
 
     cv2.imshow(window_name, frame)

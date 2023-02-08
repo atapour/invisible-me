@@ -23,6 +23,7 @@ import math
 def nothing(x):
     pass
 
+
 # ===================================================================
 
 # define video capture with access to camera 0
@@ -73,10 +74,8 @@ while (keep_processing):
 
     # get parameters from track bars
 
-    neighbourhood_x = cv2.getTrackbarPos("filter size - X",
-                                                   window_name)
-    neighbourhood_y = cv2.getTrackbarPos("filter size - Y",
-                                                   window_name)
+    neighbourhood_x = cv2.getTrackbarPos("filter size - X", window_name)
+    neighbourhood_y = cv2.getTrackbarPos("filter size - Y", window_name)
 
     # check filter sizes are greater than 3 and odd
 
@@ -90,8 +89,7 @@ while (keep_processing):
 
     # performing smoothing on the image using a smoothing filter
 
-    frame = cv2.GaussianBlur(image, (neighbourhood_x,
-                                      neighbourhood_y), 0)
+    frame = cv2.GaussianBlur(image, (neighbourhood_x, neighbourhood_y), 0)
 
     # stop the timer and convert to milliseconds
     # (to see how long processing and display takes)
@@ -108,10 +106,10 @@ while (keep_processing):
 
     cv2.putText(
         frame,
-        f'Smoothed Image {neighbourhood_x}x{neighbourhood_y}', 
-        (10,frame.shape[0]-15), 
-        cv2.FONT_HERSHEY_COMPLEX, 
-        1, (123,49,126), 5
+        f'Smoothed Image {neighbourhood_x}x{neighbourhood_y}',
+        (10, frame.shape[0]-15),
+        cv2.FONT_HERSHEY_COMPLEX,
+        1, (123, 49, 126), 5
         )
 
     # display image
