@@ -2,9 +2,8 @@
 
 # Task 1 : capture live video from an attached camera
 
-# Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
-
-# Copyright (c) 2023 Amir Atapour Abarghouei
+# Contact : amir.atapour-abarghouei@durham.ac.uk
+# https://github.com/atapour/
 
 # based on:
 # https://github.com/atapour/chroma-keying/blob/main/src/live_video.py
@@ -105,8 +104,7 @@ while (keep_processing):
     cv2.putText(frame, label, (0, 15),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255))
 
-
-    # overlay corresponding labels on the images
+    # overlay label
 
     cv2.putText(
         frame,
@@ -132,7 +130,7 @@ while (keep_processing):
 
 # ===================================================================
 
-# Author : Amir Atapour Abarghouei, amir.atapour-abarghouei@durham.ac.uk
-# Copyright (c) 2023 Department of Computer Science, Durham University, UK
+# Author : Amir Atapour-Abarghouei / Toby Breckon
+# Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 # ===================================================================
