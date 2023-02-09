@@ -114,8 +114,8 @@ From all the image processing functionality we have built up so far, we can now 
 To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - point your webcam to a clear(ish) area of the room with no people or (green) chroma keying material in view; and run the code (click _"Run > Run Without Debugging"_)
-- _[a window of the current background image captured by the code should be displayed in one window, and the live image view in another]_
-- you may need to resize the live image view window with the mouse (_you can also turn fullscreen on/off by pressing ```f```_)
+- _[a window of the current background image captured by the code should be displayed on the top left, of the live image view]_
+- you may want to resize the live image view window with the mouse if it is too small. (_you can also recapture the background image by pressing the space bar_)
 - bring the (green) chroma keying material into view and _left click_ on it to select its Hue as before
 - _[you can exit the program by pressing ```q```]_
 
@@ -131,7 +131,7 @@ When the program starts up, it stores an initial image of the clear area of the 
 
 Next, we use our earlier approach to isolate the image region with a green Hue, as a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We call this the _foreground mask_ as it contains the camera image region that we wish to make invisible.  By inverting our _foreground mask_ using a bit-wise logical NOT operation (```bitwise_not()```), we can obtain a _background mask_ that conversely contains the camera image region that we do not wish to make invisible.
 
-Now, by performing a bit-wise logical AND operation between our _foreground mask_ and our original _background_ image we can isolate the pixels from the _background_ image that need to be used to cloak the image region with a green Hue (```cloaking_fill```). Similarly, by performing a bit-wise logical AND operation between the camera image and the _background mask_ we can identify the region of camera image that does not need to be cloaked (```current_background```). By combining the output of these two AND operations, we can obtain our cloaked image via the use of a bit-wise logical OR operation (```bitwise_or()```).
+Now, by performing a bit-wise logical AND operation between our _foreground mask_ and our original _background_ image, we can isolate the pixels from the _background_ image that need to be used to cloak the image region with a green Hue (```cloaking_fill```). Similarly, by performing a bit-wise logical AND operation between the camera image and the _background mask_, we can identify the region of camera image that does not need to be cloaked (```current_background```). By combining the output of these two AND operations, we can obtain our cloaked image via the use of a bit-wise logical OR operation (```bitwise_or()```).
 
 As **bit-wise logical operations** such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
@@ -145,8 +145,7 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **feathered blending**: at the moment, the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
-To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py?raw=1). Again, you may need to resize the live image view window with the mouse ( + _you can also turn fullscreen on/off by pressing ```f```_)
-
+To try out these improvements, run the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py?raw=1).
 
 Again as **arithmetic operations** such as addition, subtraction and multiplication be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
