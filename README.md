@@ -175,6 +175,6 @@ We then use these masks, again with the use of feathering for _alpha_-blending t
 
 ## Additional Info
 
-**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux)
+**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (02/2023) on Durham University LDS (Debian Linux)
 
 **Acknowledgements:** based on the same demo by [Toby Breckon](https://github.com/tobybreckon/chroma-keying), prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Amir Atapour-Abarghouei](https://github.com/atapour/ip-python-opencv) and the blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
