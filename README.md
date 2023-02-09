@@ -145,11 +145,11 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **feathered blending**: at the moment, the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
-To try out these improvements, run the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py?raw=1).
+To try out these improvements, run the following code example as before - [improved_invisibility_cloak.py](src/improved_invisibility_cloak.py?raw=1).
 
 Again as **arithmetic operations** such as addition, subtraction and multiplication be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
-To explore how these improvements work, edit the code to display the _foreground mask_ either before or after these steps have been applied (hint: look at the existing ```cv2.imshow(...)``` lines).
+To explore how these improvements work, edit the code to display the _foreground mask_ either before or after these steps have been applied (hint: look at the existing ```cv2.imshow(...)``` lines to see how you can add more of these).
 
 ## Task 4 - Chroma Keying for Real by Faking it ...
 
