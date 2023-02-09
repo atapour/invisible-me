@@ -135,9 +135,9 @@ while (keep_processing):
     # resize background image for visualisation
 
     background_visual = cv2.resize(background,
-                                (int(background.shape[1] * 0.2),
-                                int(background.shape[0] * 0.2)),
-                                interpolation=cv2.INTER_AREA)
+                                    (int(background.shape[1] * 0.2),
+                                    int(background.shape[0] * 0.2)),
+                                    interpolation=cv2.INTER_AREA)
 
     # label the background image for visualisation
 
@@ -152,8 +152,10 @@ while (keep_processing):
     image_width = image.shape[1]
     image_height = image.shape[0]
 
-    cloaked_image[0:background_height, (image_width - 
-                    background_width):image_width] = background_visual
+    cloaked_image[
+        0:background_height,
+        (image_width - background_width):image_width
+        ] = background_visual
 
     # stop the timer and convert to milliseconds
     # (to see how long processing and display takes)

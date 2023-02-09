@@ -127,8 +127,8 @@ while (keep_processing):
         last_fs = cv2.getWindowProperty(window_name,
                                         cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
-                            cv2.WINDOW_FULLSCREEN &
-                            ~(int(last_fs)))
+                               cv2.WINDOW_FULLSCREEN &
+                              ~(int(last_fs)))
 
 # ===================================================================
 
