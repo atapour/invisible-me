@@ -19,6 +19,17 @@ import urllib.request
 
 # ===================================================================
 
+# define the image to be used as the background
+# this example is set up to only work with images from a url
+# change the image by uncommenting these or adding your own
+
+# image_url = 'https://github.com/atapour/harry-potter-demo/blob/main/img/background-hogwarts.jpg'
+image_url = 'https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg'
+# image_url = 'https://static.wikia.nocookie.net/gameofthrones/images/a/a9/Great_hall1x04.jpg/revision/latest?cb=20160717004721'
+# image_url = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Living_with_nature.jpg'
+
+# ===================================================================
+
 # define the range of hues to detect - set automatically using mouse
 
 lower_bound = np.array([255, 0, 0])
@@ -78,12 +89,10 @@ cv2.setMouseCallback(window_name, mouse_callback)
 
 # ===================================================================
 
-# first, read an image of the new background from file
+# first, read an image of the new background from the url
 # and resize it to be the same size as our camera image
 
 # we load the image directly from the web for simplicity
-
-image_url = 'http://atapour.co.uk/img/atapour.jpg'
 
 req = urllib.request.urlopen(image_url)
 image_arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
@@ -196,12 +205,6 @@ while (keep_processing):
 
     if (key == ord('q')):
         keep_processing = False
-
-    # - if user presses space then reset background
-
-    elif (key == ord(' ')):
-        print("\n -- resetting background image")
-        _, background = camera.read()
 
 # ===================================================================
 

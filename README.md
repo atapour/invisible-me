@@ -158,10 +158,10 @@ To explore how these improvements work, edit the code to display the _foreground
 In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a virtual background in the same way that chroma keying is used as a special effect in the film industry (or today how some of the background changing features in video conferencing tools such as Zoom and MS Teams work).
 
 To try this out:
-- copy and paste the code from this example [chroma_keying_background.py](src/chroma_keying.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer) or perhaps of [Durham Cathedral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg)) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
+- copy and paste the code from this example [background_chroma_keying.py](src/background_chroma_keying.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- you will need an image to replace your background. In this example, this is done in this example by getting images directly from the internet. On top of the program, find the line containing ```image_url = '....')```. You can try commenting and uncommenting the lines provided there to try different images when you run the program. You can also try adding new image urls but note that _not every image url will work_
 - run the code (click _"Run > Run Without Debugging"_)
-- you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
+- you can resize the live image view window with the mouse as needed
 - try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
 -  _left click_ somewhere on your green backdrop to select its Hue as before
 
@@ -173,14 +173,8 @@ We are basically inverting the concept of the invisibility mask such that we con
 
 We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
-### Further tasks
-
-If you have finished all of this you may find the [Extra Task on Invisibility Using Machine Learning](EXTRA.md) interesting.
-
 ## Additional Info
 
-**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
+**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux)
 
-**Developer Notes:** to add - additional versions with sliders controls for morphological operations, Hue range + any other parameters ; possible future enhancements - [multi-band blending](https://github.com/mtnzmz/MultiBandBlender-python), [exposure compensation](https://docs.opencv.org/4.x/d2/d37/classcv_1_1detail_1_1ExposureCompensator.html), [poisson image editing](https://learnopencv.com/seamless-cloning-using-opencv-python-cpp/).
-
-**Acknowledgements:** based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
+**Acknowledgements:** based on the same demo by [Toby Breckon](https://github.com/tobybreckon/chroma-keying), prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Amir Atapour-Abarghouei](https://github.com/atapour/ip-python-opencv) and the blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
