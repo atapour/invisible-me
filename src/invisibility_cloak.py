@@ -135,9 +135,9 @@ while (keep_processing):
     # resize background image for visualisation
 
     background_visual = cv2.resize(background,
-                                    (int(background.shape[1] * 0.2),
+                                   (int(background.shape[1] * 0.2),
                                     int(background.shape[0] * 0.2)),
-                                    interpolation=cv2.INTER_AREA)
+                                   interpolation=cv2.INTER_AREA)
 
     # label the background image for visualisation
 
