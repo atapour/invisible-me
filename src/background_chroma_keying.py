@@ -23,10 +23,19 @@ import urllib.request
 # this example is set up to only work with images from a url
 # change the image by uncommenting these or adding your own
 
-# image_url = 'https://github.com/atapour/harry-potter-demo/blob/main/img/background-hogwarts.jpg'
-image_url = 'https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg'
-# image_url = 'https://static.wikia.nocookie.net/gameofthrones/images/a/a9/Great_hall1x04.jpg/revision/latest?cb=20160717004721'
-# image_url = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Living_with_nature.jpg'
+
+
+image_url = ('https://github.com/atapour/harry-potter-demo/blob/'
+             'main/img/background-hogwarts.jpg')
+
+# image_url = ('https://www.thisisdurham.com/dbimgs/'
+#              'durham-cathedral-background.jpg')
+
+# image_url = ('https://static.wikia.nocookie.net/gameofthrones/'
+#              'images/a/a9/Great_hall1x04.jpg/revision/latest?cb=20160717004721')
+
+# image_url = ('https://upload.wikimedia.org/wikipedia/'
+#              'commons/a/ac/Living_with_nature.jpg')
 
 # ===================================================================
 
