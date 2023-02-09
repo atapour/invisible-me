@@ -190,18 +190,10 @@ while (keep_processing):
 
     key = cv2.waitKey(40) & 0xFF
 
+    # - if user presses q then exit
+
     if (key == ord('q')):
         keep_processing = False
-
-    # - if user presses "f" then switch to fullscreen
-
-    elif (key == ord('f')):
-        print("\n -- toggle fullscreen.")
-        last_fs = cv2.getWindowProperty(window_name,
-                                        cv2.WND_PROP_FULLSCREEN)
-        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
-                              cv2.WINDOW_FULLSCREEN &
-                              ~(int(last_fs)))
 
     # - if user presses space then reset background
 
