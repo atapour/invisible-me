@@ -72,7 +72,6 @@ Computers normally store an image as a giant matrix with three values for each p
 - you should see a live video with every part of the scene greyed out but with the green material colour retained (in green), as per the example below
 - _[you can exit the program by pressing ```q```]_
 
-TOoOOooOO CHANGE
 ![HSV selected region](img/hsv-selected-colour-01.png)
 
 _If it doesn't work for you, you may need to adjust the range settings for the Hue value (first value of array) to get the correct range of green Hue, in the code lines:_
