@@ -121,8 +121,6 @@ To try this out:
 
 You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image.
 
-![cloaking 1](img/cloaked-example-02.png)
-
 You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection
 
 ### How does this work ?
@@ -139,6 +137,8 @@ _Details_: In order to clean up the _foreground mask_ region, we perform a coupl
 
 ###  Improving our Invisibility ....
 
+![improved cloaking 1](img/improved-cloaked-example-01.png)
+
 In order to improve our cloaking approach, we are now going to introduce a couple of common concepts from computational geometry and computer graphics:
 
 - **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
@@ -153,7 +153,7 @@ To explore how these improvements work, edit the code to display the _foreground
 
 ## Task 4 - Chroma Keying for Real by Faking it ...
 
-![cloaking 1](img/chroma-key-example-01.png)
+![background 1](img/chroma-key-example-01.png)
 
 In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a virtual background in the same way that chroma keying is used as a special effect in the film industry (or today how some of the background changing features in video conferencing tools such as Zoom and MS Teams work).
 
