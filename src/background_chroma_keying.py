@@ -23,7 +23,7 @@ import urllib.request
 # this example is set up to only work with images from a url
 # change the image by uncommenting these or adding your own
 
-image_url = ('https://github.com/atapour/harry-potter-demo/blob/'
+image_url = ('https://github.com/atapour/harry-potter-demo/'
              'main/img/background-hogwarts.jpg')
 
 # image_url = ('https://www.thisisdurham.com/dbimgs/'
