@@ -6,6 +6,8 @@
 
 This repository contains a set of very simple computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style **cloak of invisibility** via a technique known as **[chroma keying](https://en.wikipedia.org/wiki/Chroma_key)**. It is designed to give you a starter experience in Python coding and real-time image processing.
 
+This demonstration is based on a prior demo developed and delivered by [Toby Breckon](https://github.com/tobybreckon/chroma-keying).
+
 [![Python - PEP8](https://github.com/atapour/harry-potter-demo/actions/workflows/pep8-check.yml/badge.svg)](https://github.com/atapour/harry-potter-demo/actions/workflows/pep8-check.yml)
 
 ## Getting Started
