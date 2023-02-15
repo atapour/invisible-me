@@ -116,13 +116,13 @@ To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - point your webcam to a clear(ish) area of the room with no people or (green) chroma keying material in view; and run the code (click _"Run > Run Without Debugging"_)
 - _[a window of the current background image captured by the code should be displayed on the top left, of the live image view]_
-- you may want to resize the live image view window with the mouse if it is too small. (_you can also recapture the background image by pressing the space bar_)
+- you may want to resize the live image view window with the mouse if it is too small. (_you can also recapture the background image by pressing the **space bar**_)
 - bring the (green) chroma keying material into view and _left click_ on it to select its Hue as before
 - _[you can exit the program by pressing ```q```]_
 
-You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image.
+You should now see that the objects which are covered by the chroma keying material are cloaked using information from the captured scene background image.
 
-You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection
+You can reset the background image by _pressing the **space** key_; you can _right click_ to reset the Hue selection.
 
 ### How does this work ?
 
