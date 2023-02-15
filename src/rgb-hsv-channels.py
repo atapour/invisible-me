@@ -44,6 +44,13 @@ while (keep_processing):
 
     # *******************************
 
+    # rescale the image for easier processing
+
+    scale_percent = 50 # percent of original size
+    width = int(rgb.shape[1] * scale_percent/100)
+    height = int(rgb.shape[0] * scale_percent/100)
+    rgb = cv2.resize(rgb, (width, height), interpolation=cv2.INTER_AREA)
+
     # construct RGB channel view (N.B. OpenCV is BGR, not RGB channel ordering)
 
     red = np.zeros(rgb.shape, dtype=np.uint8)
