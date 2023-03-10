@@ -48,7 +48,7 @@ Once you have completed the **Getting Started** steps:
 
 ![RGB Diagram](img/vs-code-python-run.png)
 
-- you should see a window with a live vide being captured from the camera displayed. [_you can exit the program by pressing ```q```_ ]
+- you should see a window with a live video being captured from the camera displayed. [_you can exit the program by pressing ```q```_ ]
 
 _If you do not see a live video image_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
