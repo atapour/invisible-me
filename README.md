@@ -174,6 +174,13 @@ We are basically inverting the concept of the invisibility mask such that we con
 
 We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
+
+## Continue playing at home...!
+
+If you want to continue working on this later and want to keep access to this url, you can take a picture of this QR code.
+
+![QR Code](img/qr-code.png)
+
 ## Additional Info
 
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (02/2023) on Durham University LDS (Debian Linux)
