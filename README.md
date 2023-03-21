@@ -1,6 +1,6 @@
 # Cloak of Invisibility
 
-![RGB Diagram](img/harry-potter-cloak.jpg)
+![RGB Diagram](img/amir-head.png)
 
 ## Chroma Keying via Colour Selection and Filtering in Real-time Video
 
