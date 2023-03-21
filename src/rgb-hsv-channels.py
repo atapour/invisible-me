@@ -46,7 +46,7 @@ while (keep_processing):
 
     # rescale the image for easier processing
 
-    scale_percent = 50
+    scale_percent = 40
     width = int(rgb.shape[1] * scale_percent/100)
     height = int(rgb.shape[0] * scale_percent/100)
     rgb = cv2.resize(rgb, (width, height), interpolation=cv2.INTER_AREA)
@@ -80,19 +80,19 @@ while (keep_processing):
     # overlay corresponding labels on the images
 
     cv2.putText(rgb, 'Input Image', (10, rgb.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
     cv2.putText(red, 'RGB - Red', (10, red.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
     cv2.putText(green, 'RGB - Green', (10, green.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
     cv2.putText(blue, 'RGB - Blue', (10, blue.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
     cv2.putText(hue, 'HSV - Hue', (10, hue.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
     cv2.putText(saturation, 'HSV - Saturation', (10, saturation.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
     cv2.putText(value, 'HSV - Value', (10, value.shape[0] - 15),
-                cv2.FONT_HERSHEY_COMPLEX, 2, (123, 49, 126), 6)
+                cv2.FONT_HERSHEY_COMPLEX, 1, (123, 49, 126), 2)
 
     # stack the images into a grid
 
@@ -109,7 +109,7 @@ while (keep_processing):
     label = ('Processing time: %.2f ms' % stop_t) + \
         (' (Max Frames per Second (fps): %.2f' % (1000 / stop_t)) + ')'
     cv2.putText(output, label, (0, 60),
-                cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     # display image
 
