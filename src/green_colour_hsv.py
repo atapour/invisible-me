@@ -26,8 +26,7 @@ upper_green = np.array([95, 255, 255])
 
 # define video capture with access to camera 0
 
-cv2.VideoCapture(0,
-cv2.CAP_V4L)
+camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 
 # define display window
 
